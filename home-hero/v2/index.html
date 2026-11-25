@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>هیرو صفحه اصلی — نسخه ۲ — گذرگاه داده (تیره)</title>
+<link rel="stylesheet" href="home-hero-v2.css">
+<style>
+  /* PREVIEW ONLY — stand-in for the theme header. Do not ship. */
+  body { margin: 0; background: #fcfcfc; }
+  .pv-header { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,.92); backdrop-filter: blur(8px); box-shadow: 0 1px 0 #ececf1; font-family: Kalameh, Vazirmatn, Tahoma, sans-serif; direction: rtl; }
+  .pv-header__in { display: flex; align-items: center; gap: 32px; width: min(1440px, 100% - 2 * clamp(16px,4vw,240px)); margin-inline: auto; height: 72px; font-size: 15px; color: #252525; }
+  .pv-header__in img { height: 40px; width: auto; }
+  .pv-nav { display: flex; gap: 28px; } .pv-nav b { color: #57b3b7; font-weight: 500; }
+  @media (max-width: 767px) { .pv-nav { display: none; } }
+
+</style>
+</head>
+<body>
+<header class="pv-header"><div class="pv-header__in"><img src="../assets/logo.webp" alt="آتیه ارتباط"><nav class="pv-nav"><b>صفحه اصلی</b><span>خدمات</span><span>درباره ما</span><span>تماس با ما</span></nav></div></header>
+<!-- ===================== START: replaces <section class="home-hero"> ===================== -->
+<section class="ahb-hero" aria-labelledby="ahb-title">
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="ahb-i-server" viewBox="0 0 24 24"><path d="M5.25 14.25h13.5m-13.5 0a3 3 0 0 1-3-3m3 3a3 3 0 1 0 0 6h13.5a3 3 0 1 0 0-6m-16.5-3a3 3 0 0 1 3-3h13.5a3 3 0 0 1 3 3m-19.5 0a4.5 4.5 0 0 1 .9-2.7L5.737 5.1a3.375 3.375 0 0 1 2.7-1.35h7.126c1.062 0 2.062.5 2.7 1.35l2.587 3.45a4.5 4.5 0 0 1 .9 2.7m0 0a3 3 0 0 1-3 3m0 3h.008v.008h-.008v-.008Zm0-6h.008v.008h-.008v-.008Zm-3 6h.008v.008h-.008v-.008Zm0-6h.008v.008h-.008v-.008Z"/></symbol>
+    <symbol id="ahb-i-sparkles" viewBox="0 0 24 24"><path d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456Z"/></symbol>
+    <symbol id="ahb-i-code" viewBox="0 0 24 24"><path d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5"/></symbol>
+    <symbol id="ahb-i-megaphone" viewBox="0 0 24 24"><path d="M10.34 15.84c-.688-.06-1.386-.09-2.09-.09H7.5a4.5 4.5 0 1 1 0-9h.75c.704 0 1.402-.03 2.09-.09m0 9.18c.253.962.584 1.892.985 2.783.247.55.06 1.21-.463 1.511l-.657.38c-.551.318-1.26.117-1.527-.461a20.845 20.845 0 0 1-1.44-4.282m3.102.069a18.03 18.03 0 0 1-.59-4.59c0-1.586.205-3.124.59-4.59m0 9.18a23.848 23.848 0 0 1 8.835 2.535M10.34 6.66a23.847 23.847 0 0 0 8.835-2.535m0 0A23.74 23.74 0 0 0 18.795 3m.38 1.125a23.91 23.91 0 0 1 1.014 5.395m-1.014 8.855c-.118.38-.245.754-.38 1.125m.38-1.125a23.91 23.91 0 0 0 1.014-5.395m0-3.46c.495.413.811 1.035.811 1.73 0 .695-.316 1.317-.811 1.73m0-3.46a24.347 24.347 0 0 1 0 3.46"/></symbol>
+    <symbol id="ahb-i-cube" viewBox="0 0 24 24"><path d="m21 7.5-9-5.25L3 7.5m18 0-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9"/></symbol>
+    <symbol id="ahb-i-arrow" viewBox="0 0 24 24"><path d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"/></symbol>
+  </svg>
+  <div class="ahb-container">
+    <div class="ahb-box">
+      <canvas class="ahb-bg" aria-hidden="true"></canvas>
+      <header class="ahb-head">
+        <p class="ahb-eyebrow"><i aria-hidden="true"></i>آتیه ارتباط کیش</p>
+        <h1 class="ahb-title" id="ahb-title">زیرساخت، نرم‌افزار و هوش مصنوعی؛ <span>پنج خدمت روی یک بستر</span></h1>
+        <p class="ahb-lead">با تمرکز بر ایجاد زیرساخت‌های پایدار، سبد کاملی از خدمات میزبانی دیتاسنتر، توسعه هوش مصنوعی سازمانی، طراحی نرم‌افزارهای اختصاصی، تولید محتوا و رندرفارم را یک‌جا ارائه می‌دهیم.</p>
+      </header>
+
+      <div class="ahb-bus">
+        <svg class="ahb-bus__svg" viewBox="0 0 1200 160" preserveAspectRatio="none" aria-hidden="true">
+          <path id="ahb-wave" class="ahb-wave" d="M0,128.0 L10,127.6 L20,126.4 L30,124.3 L40,121.6 L50,118.1 L60,113.9 L70,109.2 L80,104.0 L90,98.4 L100,92.4 L110,86.3 L120,80.0 L130,73.7 L140,67.6 L150,61.6 L160,56.0 L170,50.8 L180,46.1 L190,41.9 L200,38.4 L210,35.7 L220,33.6 L230,32.4 L240,32.0 L250,32.4 L260,33.6 L270,35.7 L280,38.4 L290,41.9 L300,46.1 L310,50.8 L320,56.0 L330,61.6 L340,67.6 L350,73.7 L360,80.0 L370,86.3 L380,92.4 L390,98.4 L400,104.0 L410,109.2 L420,113.9 L430,118.1 L440,121.6 L450,124.3 L460,126.4 L470,127.6 L480,128.0 L490,127.6 L500,126.4 L510,124.3 L520,121.6 L530,118.1 L540,113.9 L550,109.2 L560,104.0 L570,98.4 L580,92.4 L590,86.3 L600,80.0 L610,73.7 L620,67.6 L630,61.6 L640,56.0 L650,50.8 L660,46.1 L670,41.9 L680,38.4 L690,35.7 L700,33.6 L710,32.4 L720,32.0 L730,32.4 L740,33.6 L750,35.7 L760,38.4 L770,41.9 L780,46.1 L790,50.8 L800,56.0 L810,61.6 L820,67.6 L830,73.7 L840,80.0 L850,86.3 L860,92.4 L870,98.4 L880,104.0 L890,109.2 L900,113.9 L910,118.1 L920,121.6 L930,124.3 L940,126.4 L950,127.6 L960,128.0 L970,127.6 L980,126.4 L990,124.3 L1000,121.6 L1010,118.1 L1020,113.9 L1030,109.2 L1040,104.0 L1050,98.4 L1060,92.4 L1070,86.3 L1080,80.0 L1090,73.7 L1100,67.6 L1110,61.6 L1120,56.0 L1130,50.8 L1140,46.1 L1150,41.9 L1160,38.4 L1170,35.7 L1180,33.6 L1190,32.4 L1200,32.0"/>
+          <path class="ahb-wave ahb-wave--flow" d="M0,128.0 L10,127.6 L20,126.4 L30,124.3 L40,121.6 L50,118.1 L60,113.9 L70,109.2 L80,104.0 L90,98.4 L100,92.4 L110,86.3 L120,80.0 L130,73.7 L140,67.6 L150,61.6 L160,56.0 L170,50.8 L180,46.1 L190,41.9 L200,38.4 L210,35.7 L220,33.6 L230,32.4 L240,32.0 L250,32.4 L260,33.6 L270,35.7 L280,38.4 L290,41.9 L300,46.1 L310,50.8 L320,56.0 L330,61.6 L340,67.6 L350,73.7 L360,80.0 L370,86.3 L380,92.4 L390,98.4 L400,104.0 L410,109.2 L420,113.9 L430,118.1 L440,121.6 L450,124.3 L460,126.4 L470,127.6 L480,128.0 L490,127.6 L500,126.4 L510,124.3 L520,121.6 L530,118.1 L540,113.9 L550,109.2 L560,104.0 L570,98.4 L580,92.4 L590,86.3 L600,80.0 L610,73.7 L620,67.6 L630,61.6 L640,56.0 L650,50.8 L660,46.1 L670,41.9 L680,38.4 L690,35.7 L700,33.6 L710,32.4 L720,32.0 L730,32.4 L740,33.6 L750,35.7 L760,38.4 L770,41.9 L780,46.1 L790,50.8 L800,56.0 L810,61.6 L820,67.6 L830,73.7 L840,80.0 L850,86.3 L860,92.4 L870,98.4 L880,104.0 L890,109.2 L900,113.9 L910,118.1 L920,121.6 L930,124.3 L940,126.4 L950,127.6 L960,128.0 L970,127.6 L980,126.4 L990,124.3 L1000,121.6 L1010,118.1 L1020,113.9 L1030,109.2 L1040,104.0 L1050,98.4 L1060,92.4 L1070,86.3 L1080,80.0 L1090,73.7 L1100,67.6 L1110,61.6 L1120,56.0 L1130,50.8 L1140,46.1 L1150,41.9 L1160,38.4 L1170,35.7 L1180,33.6 L1190,32.4 L1200,32.0"/>
+          <circle class="ahb-comet" r="4"><animateMotion dur="7s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear"><mpath href="#ahb-wave"/></animateMotion></circle>
+          <circle class="ahb-comet" r="3" opacity=".7"><animateMotion dur="7s" begin="-3.5s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear"><mpath href="#ahb-wave"/></animateMotion></circle>
+        </svg>
+        <ol class="ahb-nodes" aria-label="خدمات آتیه ارتباط">
+        <li class="ahb-node" role="button" tabindex="0" style="--x:10.00%" aria-pressed="true" aria-label="مرکز داده مبین: میزبانی و دیتاسنتر">
+          <span class="ahb-node__dot"><svg class="ahb-icon" aria-hidden="true"><use href="#ahb-i-server"/></svg></span>
+          <span class="ahb-node__card"><span class="ahb-node__name">مرکز داده مبین</span><span class="ahb-node__k">میزبانی و دیتاسنتر</span></span>
+        </li>
+        <li class="ahb-node" role="button" tabindex="0" style="--x:30.00%" aria-pressed="false" aria-label="هوش مصنوعی: نکس‌گپ و LLM سازمانی">
+          <span class="ahb-node__dot"><svg class="ahb-icon" aria-hidden="true"><use href="#ahb-i-sparkles"/></svg></span>
+          <span class="ahb-node__card"><span class="ahb-node__name">هوش مصنوعی</span><span class="ahb-node__k">نکس‌گپ و LLM سازمانی</span></span>
+        </li>
+        <li class="ahb-node" role="button" tabindex="0" style="--x:50.00%" aria-pressed="false" aria-label="توسعه نرم‌افزار: پورتال و پلتفرم اختصاصی">
+          <span class="ahb-node__dot"><svg class="ahb-icon" aria-hidden="true"><use href="#ahb-i-code"/></svg></span>
+          <span class="ahb-node__card"><span class="ahb-node__name">توسعه نرم‌افزار</span><span class="ahb-node__k">پورتال و پلتفرم اختصاصی</span></span>
+        </li>
+        <li class="ahb-node" role="button" tabindex="0" style="--x:70.00%" aria-pressed="false" aria-label="تولید محتوا: رسانه و محتوای تخصصی">
+          <span class="ahb-node__dot"><svg class="ahb-icon" aria-hidden="true"><use href="#ahb-i-megaphone"/></svg></span>
+          <span class="ahb-node__card"><span class="ahb-node__name">تولید محتوا</span><span class="ahb-node__k">رسانه و محتوای تخصصی</span></span>
+        </li>
+        <li class="ahb-node" role="button" tabindex="0" style="--x:90.00%" aria-pressed="false" aria-label="فست فارم: رندرفارم">
+          <span class="ahb-node__dot"><svg class="ahb-icon" aria-hidden="true"><use href="#ahb-i-cube"/></svg></span>
+          <span class="ahb-node__card"><span class="ahb-node__name">فست فارم</span><span class="ahb-node__k">رندرفارم</span></span>
+        </li>
+        </ol>
+      </div>
+
+      <div class="ahb-detail" aria-live="polite">
+        <span class="ahb-detail__n" data-ahb="n">۰۱</span>
+        <p class="ahb-detail__text"><b data-ahb="name">مرکز داده مبین</b> — <span data-ahb="text">سرور اختصاصی و مجازی، هاست اشتراکی و کولوکیشن روی سخت‌افزار به‌روز؛ با آپتایم بالا، ریداندنسی شبکه میان دو IXP و پشتیبانی ۲۴ ساعته.</span></p>
+        <a class="ahb-link" data-ahb="href" href="/services/mobinidc/">مشاهده خدمت <svg class="ahb-icon" aria-hidden="true"><use href="#ahb-i-arrow"/></svg></a>
+        <span class="ahb-detail__bar" aria-hidden="true"><i></i></span>
+      </div>
+      <div class="ahb-actions" style="margin-top:0">
+        <a class="ahb-btn" href="/order/"><span class="ahb-btn__icon" aria-hidden="true"><svg class="ahb-icon"><use href="#ahb-i-arrow"/></svg></span><span>سفارش پروژه</span></a>
+        <a class="ahb-btn ahb-btn--ghost" href="/services/"><span class="ahb-btn__icon" aria-hidden="true"><svg class="ahb-icon"><use href="#ahb-i-arrow"/></svg></span><span>همه خدمات</span></a>
+      </div>
+    </div>
+  </div>
+  <script type="application/json" class="ahb-data">[
+  {
+    "name": "مرکز داده مبین",
+    "k": "میزبانی و دیتاسنتر",
+    "icon": "server",
+    "href": "/services/mobinidc/",
+    "text": "سرور اختصاصی و مجازی، هاست اشتراکی و کولوکیشن روی سخت‌افزار به‌روز؛ با آپتایم بالا، ریداندنسی شبکه میان دو IXP و پشتیبانی ۲۴ ساعته."
+  },
+  {
+    "name": "هوش مصنوعی",
+    "k": "نکس‌گپ و LLM سازمانی",
+    "icon": "sparkles",
+    "href": "/services/ai/",
+    "text": "دسترسی یکپارچه به برترین مدل‌های زبانی جهان با پلتفرم نکس‌گپ، در کنار توسعه هوش مصنوعی بومی و اختصاصی روی زیرساخت پردازش سنگین."
+  },
+  {
+    "name": "توسعه نرم‌افزار",
+    "k": "پورتال و پلتفرم اختصاصی",
+    "icon": "code",
+    "href": "/services/software/",
+    "text": "پورتال‌های اداری، سامانه‌های مدیریت محتوا و پلتفرم‌های آنلاین اختصاصی؛ بر اساس نیازهای واقعی کسب‌وکار و استانداردهای UI/UX."
+  },
+  {
+    "name": "تولید محتوا",
+    "k": "رسانه و محتوای تخصصی",
+    "icon": "megaphone",
+    "href": "/services/content/",
+    "text": "مقالات تخصصی سئو، صفحات لندینگ، سناریو و موشن‌گرافی؛ تا رسانه به ابزاری برای جذب مخاطب و افزایش فروش تبدیل شود."
+  },
+  {
+    "name": "فست فارم",
+    "k": "رندرفارم",
+    "icon": "cube",
+    "href": "/services/fastfarm/",
+    "text": "رندر انیمیشن‌های سینمایی، جلوه‌های ویژه و پروژه‌های معماری روی سیستم‌های پرقدرت با رم و توان پردازشی بسیار بالا."
+  }
+]</script>
+</section>
+<!-- ===================== END ===================== -->
+<div style="height:160px"></div>
+<script src="home-hero-v2.js" defer></script>
+</body>
+</html>
