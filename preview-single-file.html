@@ -168,10 +168,7 @@
 .nx-send { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: var(--nx-btn); color: #fff; }
 .nx-send .nx-icon { width: 16px; height: 16px; stroke-width: 2; }
 .nx-results { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-.nx-results i { aspect-ratio: 4 / 3; border-radius: 12px; }
-.nx-results i:nth-child(1) { background: linear-gradient(135deg, #71cdd0, #316466); }
-.nx-results i:nth-child(2) { background: linear-gradient(160deg, #f6d9a8, #e8a83c 60%, #377d81); }
-.nx-results i:nth-child(3) { background: linear-gradient(200deg, #c0e9ea, #57b3b7 55%, #0f3a3c); }
+.nx-results img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 12px; box-shadow: 0 6px 14px -8px rgba(15, 58, 60, .45); }
 
 .nx-float {
   position: absolute; z-index: 2; display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px;
@@ -224,10 +221,7 @@
 .nx-path--ng .nx-path__title { color: var(--ng-ink); }
 .nx-path--ng .nx-chip { border-color: rgba(91, 79, 229, .14); background: rgba(255, 255, 255, .7); }
 .nx-path--ng .nx-link { color: var(--ng-primary); }
-.nx-ng .nx-results i:nth-child(1) { background: linear-gradient(160deg, #dcd8f3, #8b82ef 55%, #3d33b8); }
-.nx-ng .nx-results i:nth-child(2) { background: linear-gradient(150deg, #f6e6cb, #e8a83c 70%, #a67118); }
-.nx-ng .nx-results i:nth-child(3) { background: linear-gradient(200deg, #f1ecf3, #5b4fe5 60%, #1c1c22); }
-.nx-ng .nx-app__side .is-on { color: var(--ng-primary); }
+.nx-ng .nx-ng .nx-ng .nx-ng .nx-app__side .is-on { color: var(--ng-primary); }
 
 
 /* Free-credit offer (NexGap amber accent) */
@@ -891,7 +885,11 @@
                     <span class="nx-send"><svg class="nx-icon"><use href="#nx-i-arrow"/></svg></span>
                   </div>
                 </div>
-                <div class="nx-results"><i></i><i></i><i></i></div>
+                <div class="nx-results">
+                  <img src="assets/platform/image-study.webp" width="384" height="480" alt="" decoding="async">
+                  <img src="assets/platform/image-tiger.webp" width="600" height="750" alt="" decoding="async">
+                  <img src="assets/platform/image-kitten.webp" width="600" height="800" alt="" decoding="async">
+                </div>
               </div>
             </div>
           </div>
