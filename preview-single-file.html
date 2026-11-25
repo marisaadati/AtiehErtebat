@@ -176,13 +176,20 @@
   box-shadow: 0 10px 24px -12px rgba(15, 58, 60, .35), 0 0 0 1px rgba(15, 58, 60, .06);
   animation: nx-float 6s var(--nx-ease) infinite;
 }
-.nx-float::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--c, var(--nx-teal)); }
 .nx-float--1 { top: 2%;  right: 6%;  --c: #57b3b7; }
 .nx-float--2 { top: 40%; left: -2%; --c: #e8a83c; animation-delay: -1.5s; }
 .nx-float--3 { bottom: 0; left: 4%; --c: #377d81; animation-delay: -3s; }
 .nx-float--4 { bottom: 0; right: 14%; --c: #71cdd0; animation-delay: -4.5s; }
 .nx-float--5 { top: 46%; right: -3%; --c: #316466; animation-delay: -2.2s; }
 
+
+/* AI model marks */
+.nx-mlogo { width: 16px; height: 16px; flex: 0 0 auto; fill: currentColor; color: var(--nx-ink); }
+.nx-mlogo--anthropic { color: #d97757; }
+.nx-mlogo--deepseek { color: #4d6bfe; }
+.nx-mlogo--alibaba { color: #ff6a00; }
+.nx-mlogo--bytedance { color: #325ab4; }
+.nx-float .nx-mlogo { width: 15px; height: 15px; }
 
 @keyframes nx-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
 @keyframes nx-caret { 50% { opacity: 0; } }
@@ -460,20 +467,6 @@
 .nx-shot__out { position: absolute; bottom: 14px; inset-inline-start: 14px; display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px 6px 6px; padding-inline-start: 6px; border-radius: 999px; background: rgba(255,255,255,.94); color: var(--nx-ink); font-size: 13px; font-weight: 600; backdrop-filter: blur(6px); }
 .nx-shot__out span { padding: 2px 10px; border-radius: 999px; background: var(--nx-deep); color: #fff; font-weight: 500; font-size: 12px; }
 
-.nx-examples { margin-top: 40px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,.12); }
-.nx-examples__head { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 18px; }
-.nx-examples__head h3 { color: #fff; font-size: 17px; font-weight: 600; }
-.nx-examples__head .nx-link { color: var(--nx-mint); white-space: nowrap; }
-.nx-examples__list { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
-.nx-example { position: relative; display: block; border-radius: 18px; overflow: hidden; box-shadow: 0 0 0 1px rgba(255,255,255,.08); }
-.nx-example img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; transition: transform .5s var(--nx-ease); }
-.nx-example::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 45%, rgba(0,0,0,.6)); }
-.nx-example:hover img, .nx-example:focus-visible img { transform: scale(1.05); }
-.nx-example:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
-.nx-example__play { position: absolute; top: 50%; left: 50%; z-index: 1; display: grid; place-items: center; width: 44px; height: 44px; margin: -22px 0 0 -22px; border-radius: 50%; background: rgba(255,255,255,.9); color: var(--nx-deep); transition: transform .3s var(--nx-ease); }
-.nx-example__play .nx-icon { display: block; width: 18px; height: 18px; fill: currentColor; stroke: none; }
-.nx-example:hover .nx-example__play { transform: scale(1.1); }
-.nx-example__tag { position: absolute; bottom: 10px; inset-inline-start: 12px; z-index: 1; color: #fff; font-size: 14px; font-weight: 600; }
 
 /* ==========================================================================
    5. Enterprise bento
@@ -531,8 +524,8 @@
 .nx-marquee__row { overflow: hidden; direction: ltr; }
 .nx-marquee__track { display: flex; gap: 12px; width: max-content; animation: nx-marquee 28s linear infinite; }
 .nx-marquee__row--rev .nx-marquee__track { animation-direction: reverse; animation-duration: 32s; }
-.nx-marquee__track span { padding: 10px 18px; border-radius: 14px; background: #fff; color: var(--nx-ink); font-size: 15px; font-weight: 600; white-space: nowrap; box-shadow: 0 0 0 1px var(--nx-line), 0 8px 18px -14px rgba(15, 58, 60, .5); }
-.nx-marquee__track span:nth-child(3n+1) { color: var(--nx-btn); }
+.nx-marquee__track span { display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; border-radius: 14px; background: #fff; color: var(--nx-ink); font-size: 15px; font-weight: 600; white-space: nowrap; box-shadow: 0 0 0 1px var(--nx-line), 0 8px 18px -14px rgba(15, 58, 60, .5); }
+.nx-marquee__track .nx-mlogo { width: 18px; height: 18px; }
 .nx-why__card:hover .nx-marquee__track { animation-play-state: paused; }
 @keyframes nx-marquee { from { transform: translateX(0); } to { transform: translateX(calc(-50% - 6px)); } }
 
@@ -584,7 +577,6 @@
    8. Consult (same structure/names as .home-consult so the existing handler works)
    ========================================================================== */
 .nx-consult .nx-container { position: relative; }
-.nx-consult { margin-top: calc(var(--nx-section-gap) + 80px); }
 .nx-consult__box {
   position: relative; isolation: isolate; overflow: hidden;
   display: grid; grid-template-columns: 1fr 1.25fr; gap: clamp(28px, 4vw, 64px); align-items: center; min-height: 448px; padding: clamp(28px, 4vw, 56px);
@@ -593,10 +585,6 @@
 .nx-consult__picture { position: absolute; inset: 0; z-index: -2; }
 .nx-consult__bg { width: 100%; height: 100%; object-fit: cover; }
 .nx-consult__box::after { content: ""; position: absolute; inset: 0; z-index: -1; background: rgba(0, 0, 0, .6); }
-.nx-consult__mascot {
-  position: absolute; z-index: 2; top: -112px; inset-inline-end: clamp(24px, 5vw, 72px); width: clamp(120px, 12vw, 168px); height: auto;
-  pointer-events: none; filter: drop-shadow(0 16px 20px rgba(0,0,0,.25));
-}
 .nx-consult__title { color: #fff; font-size: clamp(22px, 4px + 1.4vw, 28px); font-weight: 600; line-height: 1.6; }
 .nx-consult__text { margin-top: 12px; color: #b9bcc4; line-height: 2; }
 .nx-consult__alt { display: grid; gap: 10px; margin-top: 24px; }
@@ -705,11 +693,7 @@
   .nx-clients__row { grid-template-columns: repeat(3, 1fr); }
   .nx-faq__grid { grid-template-columns: 1fr; }
   .nx-faq__aside { position: static; }
-  .nx-consult__mascot { top: -84px; width: 120px; }
-  .nx-consult { margin-top: calc(var(--nx-section-gap) + 56px); }
-  .nx-card--wide { grid-template-columns: 1fr; }
-}
-
+  
 @media (max-width: 767.98px) {
   .nx-page { --nx-r-panel: 28px; }
   .nx-hero__box { padding: 28px 20px; }
@@ -753,11 +737,6 @@
   .nx-sb__strip { margin-top: 6px; gap: 4px; }
   .nx-sb__title { font-size: 11px; }
   .nx-sb__meta span:nth-child(2) { display: none; }
-  .nx-examples__list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
-  .nx-example__play { width: 32px; height: 32px; margin: -16px 0 0 -16px; top: 42%; }
-  .nx-example__play .nx-icon { width: 14px; height: 14px; }
-  .nx-example__tag { font-size: 12px; bottom: 6px; inset-inline-start: 8px; }
-  .nx-examples__head h3 { font-size: 15px; }
   .nx-bento { grid-template-columns: 1fr; }
   .nx-why { grid-template-columns: 1fr; }
   .nx-why__card--gpu { grid-column: auto; grid-template-columns: 1fr; }
@@ -825,7 +804,22 @@
     <symbol id="nx-i-play" viewBox="0 0 24 24"><path d="M6.5 5.14v13.72a1 1 0 0 0 1.52.85l11.1-6.86a1 1 0 0 0 0-1.7L8.02 4.29A1 1 0 0 0 6.5 5.14Z"/></symbol>
     <symbol id="nx-i-phone" viewBox="0 0 24 24"><path d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"/></symbol>
     <symbol id="nx-i-mail" viewBox="0 0 24 24"><path d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"/></symbol>
-  <symbol id="nx-i-gift" viewBox="0 0 24 24"><path d="M21 11.25v8.25a1.5 1.5 0 0 1-1.5 1.5H5.25a1.5 1.5 0 0 1-1.5-1.5v-8.25M12 4.875A2.625 2.625 0 1 0 9.375 7.5H12m0-2.625V7.5m0-2.625A2.625 2.625 0 1 1 14.625 7.5H12m0 0V21m-8.625-9.75h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125h-18c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z"/></symbol>
+
+    <!-- AI model marks (same icons nexgap.ai uses in its model picker) -->
+    <symbol id="nx-m-openai" viewBox="0 0 24 24"><path d="M9.205 8.658v-2.26c0-.19.072-.333.238-.428l4.543-2.616c.619-.357 1.356-.523 2.117-.523 2.854 0 4.662 2.212 4.662 4.566 0 .167 0 .357-.024.547l-4.71-2.759a.797.797 0 00-.856 0l-5.97 3.473zm10.609 8.8V12.06c0-.333-.143-.57-.429-.737l-5.97-3.473 1.95-1.118a.433.433 0 01.476 0l4.543 2.617c1.309.76 2.189 2.378 2.189 3.948 0 1.808-1.07 3.473-2.76 4.163zM7.802 12.703l-1.95-1.142c-.167-.095-.239-.238-.239-.428V5.899c0-2.545 1.95-4.472 4.591-4.472 1 0 1.927.333 2.712.928L8.23 5.067c-.285.166-.428.404-.428.737v6.898zM12 15.128l-2.795-1.57v-3.33L12 8.658l2.795 1.57v3.33L12 15.128zm1.796 7.23c-1 0-1.927-.332-2.712-.927l4.686-2.712c.285-.166.428-.404.428-.737v-6.898l1.974 1.142c.167.095.238.238.238.428v5.233c0 2.545-1.974 4.472-4.614 4.472zm-5.637-5.303l-4.544-2.617c-1.308-.761-2.188-2.378-2.188-3.948A4.482 4.482 0 014.21 6.327v5.423c0 .333.143.571.428.738l5.947 3.449-1.95 1.118a.432.432 0 01-.476 0zm-.262 3.9c-2.688 0-4.662-2.021-4.662-4.519 0-.19.024-.38.047-.57l4.686 2.71c.286.167.571.167.856 0l5.97-3.448v2.26c0 .19-.07.333-.237.428l-4.543 2.616c-.619.357-1.356.523-2.117.523zm5.899 2.83a5.947 5.947 0 005.827-4.756C22.287 18.339 24 15.84 24 13.296c0-1.665-.713-3.282-1.998-4.448.119-.5.19-.999.19-1.498 0-3.401-2.759-5.947-5.946-5.947-.642 0-1.26.095-1.88.31A5.962 5.962 0 0010.205 0a5.947 5.947 0 00-5.827 4.757C1.713 5.447 0 7.945 0 10.49c0 1.666.713 3.283 1.998 4.448-.119.5-.19 1-.19 1.499 0 3.401 2.759 5.946 5.946 5.946.642 0 1.26-.095 1.88-.309a5.96 5.96 0 004.162 1.713z"></path></symbol>
+    <symbol id="nx-m-anthropic" viewBox="0 0 24 24"><path d="M13.827 3.52h3.603L24 20h-3.603l-6.57-16.48zm-7.258 0h3.767L16.906 20h-3.674l-1.343-3.461H5.017l-1.344 3.46H0L6.57 3.522zm4.132 9.959L8.453 7.687 6.205 13.48H10.7z"></path></symbol>
+    <symbol id="nx-m-deepseek" viewBox="0 0 50 50"><path d="M49.475,10.462c-0.53-0.26-0.758,0.235-1.067,0.486c-0.106,0.081-0.196,0.186-0.285,0.284 c-0.774,0.827-1.678,1.37-2.86,1.305c-1.727-0.097-3.202,0.446-4.506,1.767c-0.277-1.629-1.198-2.602-2.599-3.226 c-0.733-0.324-1.475-0.649-1.988-1.354c-0.359-0.502-0.456-1.062-0.636-1.613c-0.114-0.332-0.228-0.673-0.611-0.73 c-0.416-0.065-0.579,0.284-0.742,0.576c-0.652,1.192-0.904,2.505-0.88,3.834c0.057,2.991,1.32,5.374,3.83,7.068 c0.285,0.195,0.359,0.389,0.269,0.673c-0.171,0.584-0.375,1.151-0.554,1.735c-0.114,0.373-0.285,0.454-0.684,0.292 c-1.377-0.575-2.567-1.427-3.618-2.456c-1.784-1.727-3.398-3.631-5.41-5.123c-0.473-0.349-0.945-0.673-1.434-0.981 c-2.053-1.994,0.269-3.631,0.807-3.826c0.562-0.203,0.196-0.9-1.622-0.892c-1.817,0.008-3.479,0.616-5.598,1.427 c-0.31,0.122-0.636,0.211-0.97,0.284c-1.923-0.365-3.919-0.446-6.005-0.211c-3.927,0.438-7.064,2.294-9.37,5.463 c-2.77,3.81-3.422,8.138-2.624,12.653c0.839,4.758,3.267,8.697,6.999,11.778c3.87,3.193,8.328,4.758,13.412,4.458 c3.088-0.178,6.527-0.592,10.405-3.874c0.978,0.486,2.004,0.681,3.707,0.827c1.312,0.122,2.575-0.065,3.553-0.267 c1.532-0.324,1.426-1.743,0.872-2.002c-3.849-1.347-4.4-1.929-4.4-1.929c2.281-2.699,5.72-5.504,7.065-14.59 c0.106-0.721,0.016-1.175,0-1.759c-0.008-0.357,0.073-0.494,0.481-0.535c1.124-0.13,2.216-0.438,3.219-0.989 c2.909-1.589,4.082-4.199,4.359-7.327C50.03,11.207,49.981,10.713,49.475,10.462z M24.126,38.621 c-4.351-3.42-6.461-4.547-7.333-4.499c-0.815,0.049-0.668,0.981-0.489,1.589c0.187,0.6,0.432,1.013,0.774,1.54 c0.236,0.349,0.399,0.867-0.236,1.256c-1.402,0.867-3.838-0.292-3.952-0.349c-2.835-1.67-5.207-3.875-6.877-6.89 c-1.613-2.902-2.55-6.014-2.705-9.338c-0.041-0.802,0.196-1.086,0.994-1.232c1.051-0.195,2.135-0.235,3.186-0.081 c4.441,0.649,8.222,2.634,11.391,5.779c1.809,1.791,3.178,3.931,4.588,6.023c1.499,2.221,3.113,4.337,5.166,6.071 c0.725,0.608,1.304,1.07,1.858,1.41C28.82,40.088,26.033,40.128,24.126,38.621L24.126,38.621z M26.212,25.206 c0-0.357,0.285-0.64,0.644-0.64c0.081,0,0.155,0.016,0.22,0.04c0.09,0.033,0.171,0.081,0.236,0.154 c0.114,0.114,0.179,0.276,0.179,0.446c0,0.357-0.285,0.64-0.644,0.64S26.212,25.562,26.212,25.206L26.212,25.206z M32.69,28.529 c-0.416,0.17-0.831,0.316-1.23,0.332c-0.619,0.032-1.296-0.219-1.662-0.527c-0.57-0.478-0.978-0.746-1.149-1.581 c-0.073-0.357-0.033-0.908,0.033-1.224c0.147-0.681-0.016-1.119-0.497-1.516c-0.391-0.324-0.888-0.413-1.434-0.413 c-0.204,0-0.391-0.089-0.53-0.162c-0.228-0.113-0.415-0.397-0.236-0.746c0.057-0.113,0.334-0.389,0.399-0.438 c0.742-0.422,1.597-0.284,2.387,0.032c0.733,0.3,1.287,0.851,2.086,1.629c0.815,0.94,0.961,1.2,1.426,1.905 c0.367,0.551,0.701,1.119,0.929,1.767C33.35,27.994,33.171,28.327,32.69,28.529L32.69,28.529z"/></symbol>
+    <symbol id="nx-m-google" viewBox="0 0 24 24"><path fill="#4285F4" d="M23 12.245c0-.905-.075-1.565-.236-2.25h-10.54v4.083h6.186c-.124 1.014-.797 2.542-2.294 3.569l-.021.136 3.332 2.53.23.022C21.779 18.417 23 15.593 23 12.245z"></path><path fill="#34A853" d="M12.225 23c3.03 0 5.574-.978 7.433-2.665l-3.542-2.688c-.948.648-2.22 1.1-3.891 1.1a6.745 6.745 0 01-6.386-4.572l-.132.011-3.465 2.628-.045.124C4.043 20.531 7.835 23 12.225 23z"></path><path fill="#FBBC05" d="M5.84 14.175A6.65 6.65 0 015.463 12c0-.758.138-1.491.361-2.175l-.006-.147-3.508-2.67-.115.054A10.831 10.831 0 001 12c0 1.772.436 3.447 1.197 4.938l3.642-2.763z"></path><path fill="#EA4335" d="M12.225 5.253c2.108 0 3.529.892 4.34 1.638l3.167-3.031C17.787 2.088 15.255 1 12.225 1 7.834 1 4.043 3.469 2.197 7.062l3.63 2.763a6.77 6.77 0 016.398-4.572z"></path></symbol>
+    <symbol id="nx-m-suno" viewBox="0 0 24 24"><path d="M16.5 0C20.642 0 24 5.373 24 12h-9c0 6.627-3.358 12-7.5 12C3.358 24 0 18.627 0 12h9c0-6.627 3.358-12 7.5-12z"></path></symbol>
+    <symbol id="nx-m-alibaba" viewBox="0 0 24 24"><path d="M24 14.014c-2.8 1.512-5.62 2.896-8.759 3.524-.7.139-1.476.139-2.187.043-.678-.085-1.017-.682-.776-1.31.23-.585.536-1.181.93-1.671.852-1.065 1.814-2.034 2.678-3.088a15.75 15.75 0 001.422-2.054c.306-.511.164-1.129-.372-1.384-.897-.437-1.859-.745-2.81-1.075-.11-.043-.274.074-.492.149.273.244.47.425.743.67-2.821.48-5.49 1.16-8.08 2.098-.012.053-.033.095-.023.117.383.585.208 1.032-.35 1.394a2.365 2.365 0 00-.568.522c1.706.5 3.226.213 4.68-.735-.087-.127-.175-.244-.262-.372.546.096.874.394.918.862.011.107-.054.213-.087.32-.077-.086-.175-.17-.24-.267-.045-.064-.056-.138-.088-.245-1.728 1.15-3.587 1.438-5.632.842 0 .404-.022.745.011 1.075.022.287-.098.415-.36.564-.591.362-1.204.735-1.696 1.214-.59.585-.371 1.299.427 1.597.907.34 1.859.35 2.81.234 1.126-.139 2.23-.32 3.456-.49-1.433.67-2.844 1.14-4.33 1.33-1.04.14-2.078.214-3.106-.084-1.476-.415-2.133-1.501-1.75-2.96.361-1.363 1.236-2.449 2.176-3.45 3.139-3.332 7.108-5.024 11.7-5.365 1.072-.074 2.155.064 3.16.511 1.411.639 2.002 1.99 1.313 3.354-.448.905-1.072 1.735-1.695 2.555-.612.809-1.301 1.554-1.946 2.331-.186.234-.361.48-.503.745-.274.5-.088.83.492.778 1.213-.118 2.45-.213 3.62-.511 1.716-.437 3.389-1.054 5.084-1.597.175-.043.339-.107.492-.17z"></path></symbol>
+    <symbol id="nx-m-bytedance" viewBox="0 0 24 24"><path d="M14.944 18.587l-1.704-.445V10.01l1.824-.462c1-.254 1.84-.461 1.88-.453.032 0 .056 2.235.056 4.972v4.973l-.176-.008c-.104 0-.952-.207-1.88-.446z"></path><path d="M7 16.542c0-2.736.024-4.98.064-4.98.032-.008.872.2 1.88.454l1.816.461-.016 4.05-.024 4.049-1.632.422c-.896.23-1.736.445-1.856.469L7 21.523v-4.98z"></path><path d="M19.24 12.477c0-9.03.008-9.515.144-9.475.072.024.784.207 1.576.406.792.207 1.576.405 1.744.445l.296.08-.016 8.56-.024 8.568-1.624.414c-.888.23-1.728.437-1.856.47l-.24.055v-9.523z"></path><path d="M1 12.509c0-4.678.024-8.505.064-8.505.032 0 .872.207 1.872.454l1.824.461v7.582c0 4.16-.016 7.574-.032 7.574-.024 0-.872.215-1.88.47L1 21.013v-8.505z"></path></symbol>
+    <symbol id="nx-m-x-ai" viewBox="0 0 24 24"><path d="M6.469 8.776L16.512 23h-4.464L2.005 8.776H6.47zm-.004 7.9l2.233 3.164L6.467 23H2l4.465-6.324zM22 2.582V23h-3.659V7.764L22 2.582zM22 1l-9.952 14.095-2.233-3.163L17.533 1H22z"></path></symbol>
+ <symbol id="nx-i-gift" viewBox="0 0 24 24"><path d="M21 11.25v8.25a1.5 1.5 0 0 1-1.5 1.5H5.25a1.5 1.5 0 0 1-1.5-1.5v-8.25M12 4.875A2.625 2.625 0 1 0 9.375 7.5H12m0-2.625V7.5m0-2.625A2.625 2.625 0 1 1 14.625 7.5H12m0 0V21m-8.625-9.75h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125h-18c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z"/></symbol>
+      <symbol id="nx-i-x" viewBox="0 0 24 24"><path d="M6 18 18 6M6 6l12 12"/></symbol>
+    <symbol id="nx-i-pin" viewBox="0 0 24 24"><path d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/><path d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"/></symbol>
+    <symbol id="nx-i-link" viewBox="0 0 24 24"><path d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244"/></symbol>
+    <symbol id="nx-i-pencil" viewBox="0 0 24 24"><path d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125"/></symbol>
+    <symbol id="nx-i-plus" viewBox="0 0 24 24"><path d="M12 4.5v15m7.5-7.5h-15"/></symbol>
   </svg>
 
   <!-- ================= 1. HERO ================= -->
@@ -858,11 +852,11 @@
         </div>
 
         <div class="nx-hero__visual" data-nx-reveal style="--d:2">
-          <span class="nx-float nx-float--1" aria-hidden="true">Claude</span>
-          <span class="nx-float nx-float--2" aria-hidden="true">DeepSeek</span>
-          <span class="nx-float nx-float--4" aria-hidden="true">Veo 3.1</span>
-          <span class="nx-float nx-float--5" aria-hidden="true">Suno AI</span>
-          <span class="nx-float nx-float--3" aria-hidden="true">GPT Image 2</span>
+          <span class="nx-float nx-float--1" aria-hidden="true"><svg class="nx-mlogo nx-mlogo--anthropic" aria-hidden="true"><use href="#nx-m-anthropic"/></svg>Claude</span>
+          <span class="nx-float nx-float--2" aria-hidden="true"><svg class="nx-mlogo nx-mlogo--deepseek" aria-hidden="true"><use href="#nx-m-deepseek"/></svg>DeepSeek</span>
+          <span class="nx-float nx-float--4" aria-hidden="true"><svg class="nx-mlogo nx-mlogo--google" aria-hidden="true"><use href="#nx-m-google"/></svg>Veo 3.1</span>
+          <span class="nx-float nx-float--5" aria-hidden="true"><svg class="nx-mlogo nx-mlogo--suno" aria-hidden="true"><use href="#nx-m-suno"/></svg>Suno AI</span>
+          <span class="nx-float nx-float--3" aria-hidden="true"><svg class="nx-mlogo nx-mlogo--openai" aria-hidden="true"><use href="#nx-m-openai"/></svg>GPT Image 2</span>
           <div class="nx-app" aria-hidden="true">
             <div class="nx-app__bar"><i></i><i></i><i></i><img class="nx-app__brand" src="assets/nexgap-logo.svg" width="120" height="27" alt=""><span class="nx-app__url">nexgap.ai</span><span class="nx-app__gift">۲۵ اعتبار رایگان</span></div>
             <div class="nx-app__body">
@@ -1152,19 +1146,6 @@
         </div>
         </div>
 
-        <div class="nx-examples">
-          <div class="nx-examples__head">
-            <h3>نمونه‌های ساخته‌شده با استودیو</h3>
-            <a class="nx-link" href="https://nexgap.ai/studio" target="_blank" rel="noopener">همه نمونه‌ها <svg class="nx-icon" aria-hidden="true"><use href="#nx-i-arrow"/></svg></a>
-          </div>
-          <ul class="nx-examples__list">
-            <li><a class="nx-example" href="https://nexgap.ai/studio" target="_blank" rel="noopener"><img src="assets/studio/ex-ad.webp" alt="نمونه ویدیوی تبلیغاتی ساخته‌شده با استودیو" loading="lazy" decoding="async" width="640" height="360"><span class="nx-example__play" aria-hidden="true"><svg class="nx-icon"><use href="#nx-i-play"/></svg></span><span class="nx-example__tag">تبلیغاتی</span></a></li>
-            <li><a class="nx-example" href="https://nexgap.ai/studio" target="_blank" rel="noopener"><img src="assets/studio/ex-animation.webp" alt="نمونه انیمیشن ساخته‌شده با استودیو" loading="lazy" decoding="async" width="640" height="360"><span class="nx-example__play" aria-hidden="true"><svg class="nx-icon"><use href="#nx-i-play"/></svg></span><span class="nx-example__tag">انیمیشن</span></a></li>
-            <li><a class="nx-example" href="https://nexgap.ai/studio" target="_blank" rel="noopener"><img src="assets/studio/ex-action.webp" alt="نمونه ویدیوی اکشن ساخته‌شده با استودیو" loading="lazy" decoding="async" width="640" height="360"><span class="nx-example__play" aria-hidden="true"><svg class="nx-icon"><use href="#nx-i-play"/></svg></span><span class="nx-example__tag">اکشن</span></a></li>
-            <li><a class="nx-example" href="https://nexgap.ai/studio" target="_blank" rel="noopener"><img src="assets/studio/ex-short-story.webp" alt="نمونه داستان کوتاه ساخته‌شده با استودیو" loading="lazy" decoding="async" width="640" height="360"><span class="nx-example__play" aria-hidden="true"><svg class="nx-icon"><use href="#nx-i-play"/></svg></span><span class="nx-example__tag">داستان کوتاه</span></a></li>
-          </ul>
-        </div>
-
         <div class="nx-actions">
           <a class="nx-btn nx-btn--light" href="https://nexgap.ai/studio" target="_blank" rel="noopener">
             <span class="nx-btn__icon" aria-hidden="true"><svg class="nx-icon"><use href="#nx-i-arrow"/></svg></span>
@@ -1251,8 +1232,8 @@ Authorization: Bearer <span class="s">nx-••••••••</span>
             <p class="nx-why__text">به‌روزترین مدل‌های متن، تصویر، ویدیو و موسیقی دنیا با یک حساب کاربری و یک اعتبار. هر مدل جدیدی که بیاید، همین‌جا اضافه می‌شود.</p>
           </div>
           <div class="nx-marquee" aria-label="نمونه مدل‌ها: GPT، Claude، DeepSeek، Gemini Omni، Grok، GPT Image 2، Veo 3.1، Sora، Seedance 2.5، Wan 3.0، Suno AI، DALL·E">
-            <div class="nx-marquee__row" aria-hidden="true"><div class="nx-marquee__track"><span>GPT</span><span>Claude</span><span>DeepSeek</span><span>Gemini Omni</span><span>Grok</span><span>GPT Image 2</span><span>GPT</span><span>Claude</span><span>DeepSeek</span><span>Gemini Omni</span><span>Grok</span><span>GPT Image 2</span></div></div>
-            <div class="nx-marquee__row nx-marquee__row--rev" aria-hidden="true"><div class="nx-marquee__track"><span>Veo 3.1</span><span>Sora</span><span>Seedance 2.5</span><span>Wan 3.0</span><span>Suno AI</span><span>DALL·E</span><span>Veo 3.1</span><span>Sora</span><span>Seedance 2.5</span><span>Wan 3.0</span><span>Suno AI</span><span>DALL·E</span></div></div>
+            <div class="nx-marquee__row" aria-hidden="true"><div class="nx-marquee__track"><span><svg class="nx-mlogo nx-mlogo--openai" aria-hidden="true"><use href="#nx-m-openai"/></svg>GPT</span><span><svg class="nx-mlogo nx-mlogo--anthropic" aria-hidden="true"><use href="#nx-m-anthropic"/></svg>Claude</span><span><svg class="nx-mlogo nx-mlogo--deepseek" aria-hidden="true"><use href="#nx-m-deepseek"/></svg>DeepSeek</span><span><svg class="nx-mlogo nx-mlogo--google" aria-hidden="true"><use href="#nx-m-google"/></svg>Gemini Omni</span><span><svg class="nx-mlogo nx-mlogo--x-ai" aria-hidden="true"><use href="#nx-m-x-ai"/></svg>Grok</span><span><svg class="nx-mlogo nx-mlogo--openai" aria-hidden="true"><use href="#nx-m-openai"/></svg>GPT Image 2</span><span><svg class="nx-mlogo nx-mlogo--openai" aria-hidden="true"><use href="#nx-m-openai"/></svg>GPT</span><span><svg class="nx-mlogo nx-mlogo--anthropic" aria-hidden="true"><use href="#nx-m-anthropic"/></svg>Claude</span><span><svg class="nx-mlogo nx-mlogo--deepseek" aria-hidden="true"><use href="#nx-m-deepseek"/></svg>DeepSeek</span><span><svg class="nx-mlogo nx-mlogo--google" aria-hidden="true"><use href="#nx-m-google"/></svg>Gemini Omni</span><span><svg class="nx-mlogo nx-mlogo--x-ai" aria-hidden="true"><use href="#nx-m-x-ai"/></svg>Grok</span><span><svg class="nx-mlogo nx-mlogo--openai" aria-hidden="true"><use href="#nx-m-openai"/></svg>GPT Image 2</span></div></div>
+            <div class="nx-marquee__row nx-marquee__row--rev" aria-hidden="true"><div class="nx-marquee__track"><span><svg class="nx-mlogo nx-mlogo--google" aria-hidden="true"><use href="#nx-m-google"/></svg>Veo 3.1</span><span><svg class="nx-mlogo nx-mlogo--openai" aria-hidden="true"><use href="#nx-m-openai"/></svg>Sora</span><span><svg class="nx-mlogo nx-mlogo--bytedance" aria-hidden="true"><use href="#nx-m-bytedance"/></svg>Seedance 2.5</span><span><svg class="nx-mlogo nx-mlogo--alibaba" aria-hidden="true"><use href="#nx-m-alibaba"/></svg>Wan 3.0</span><span><svg class="nx-mlogo nx-mlogo--suno" aria-hidden="true"><use href="#nx-m-suno"/></svg>Suno AI</span><span><svg class="nx-mlogo nx-mlogo--openai" aria-hidden="true"><use href="#nx-m-openai"/></svg>DALL·E</span><span><svg class="nx-mlogo nx-mlogo--google" aria-hidden="true"><use href="#nx-m-google"/></svg>Veo 3.1</span><span><svg class="nx-mlogo nx-mlogo--openai" aria-hidden="true"><use href="#nx-m-openai"/></svg>Sora</span><span><svg class="nx-mlogo nx-mlogo--bytedance" aria-hidden="true"><use href="#nx-m-bytedance"/></svg>Seedance 2.5</span><span><svg class="nx-mlogo nx-mlogo--alibaba" aria-hidden="true"><use href="#nx-m-alibaba"/></svg>Wan 3.0</span><span><svg class="nx-mlogo nx-mlogo--suno" aria-hidden="true"><use href="#nx-m-suno"/></svg>Suno AI</span><span><svg class="nx-mlogo nx-mlogo--openai" aria-hidden="true"><use href="#nx-m-openai"/></svg>DALL·E</span></div></div>
           </div>
         </article>
 
@@ -1325,7 +1306,6 @@ Authorization: Bearer <span class="s">nx-••••••••</span>
        admin-post.php?action=atieh_consult keeps working. Nonce must be printed by PHP. -->
   <section class="nx-section nx-consult" id="consult" aria-labelledby="nx-consult-title">
     <div class="nx-container">
-      <img class="nx-consult__mascot" src="assets/nexgap-mascot.webp" width="720" height="720" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <div class="nx-consult__box" data-nx-reveal>
         <!-- same background as the consult box on /services/software/ -->
         <picture class="nx-consult__picture">

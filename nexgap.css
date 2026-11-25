@@ -168,13 +168,20 @@
   box-shadow: 0 10px 24px -12px rgba(15, 58, 60, .35), 0 0 0 1px rgba(15, 58, 60, .06);
   animation: nx-float 6s var(--nx-ease) infinite;
 }
-.nx-float::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--c, var(--nx-teal)); }
 .nx-float--1 { top: 2%;  right: 6%;  --c: #57b3b7; }
 .nx-float--2 { top: 40%; left: -2%; --c: #e8a83c; animation-delay: -1.5s; }
 .nx-float--3 { bottom: 0; left: 4%; --c: #377d81; animation-delay: -3s; }
 .nx-float--4 { bottom: 0; right: 14%; --c: #71cdd0; animation-delay: -4.5s; }
 .nx-float--5 { top: 46%; right: -3%; --c: #316466; animation-delay: -2.2s; }
 
+
+/* AI model marks */
+.nx-mlogo { width: 16px; height: 16px; flex: 0 0 auto; fill: currentColor; color: var(--nx-ink); }
+.nx-mlogo--anthropic { color: #d97757; }
+.nx-mlogo--deepseek { color: #4d6bfe; }
+.nx-mlogo--alibaba { color: #ff6a00; }
+.nx-mlogo--bytedance { color: #325ab4; }
+.nx-float .nx-mlogo { width: 15px; height: 15px; }
 
 @keyframes nx-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
 @keyframes nx-caret { 50% { opacity: 0; } }
@@ -452,20 +459,6 @@
 .nx-shot__out { position: absolute; bottom: 14px; inset-inline-start: 14px; display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px 6px 6px; padding-inline-start: 6px; border-radius: 999px; background: rgba(255,255,255,.94); color: var(--nx-ink); font-size: 13px; font-weight: 600; backdrop-filter: blur(6px); }
 .nx-shot__out span { padding: 2px 10px; border-radius: 999px; background: var(--nx-deep); color: #fff; font-weight: 500; font-size: 12px; }
 
-.nx-examples { margin-top: 40px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,.12); }
-.nx-examples__head { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 18px; }
-.nx-examples__head h3 { color: #fff; font-size: 17px; font-weight: 600; }
-.nx-examples__head .nx-link { color: var(--nx-mint); white-space: nowrap; }
-.nx-examples__list { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
-.nx-example { position: relative; display: block; border-radius: 18px; overflow: hidden; box-shadow: 0 0 0 1px rgba(255,255,255,.08); }
-.nx-example img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; transition: transform .5s var(--nx-ease); }
-.nx-example::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 45%, rgba(0,0,0,.6)); }
-.nx-example:hover img, .nx-example:focus-visible img { transform: scale(1.05); }
-.nx-example:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
-.nx-example__play { position: absolute; top: 50%; left: 50%; z-index: 1; display: grid; place-items: center; width: 44px; height: 44px; margin: -22px 0 0 -22px; border-radius: 50%; background: rgba(255,255,255,.9); color: var(--nx-deep); transition: transform .3s var(--nx-ease); }
-.nx-example__play .nx-icon { display: block; width: 18px; height: 18px; fill: currentColor; stroke: none; }
-.nx-example:hover .nx-example__play { transform: scale(1.1); }
-.nx-example__tag { position: absolute; bottom: 10px; inset-inline-start: 12px; z-index: 1; color: #fff; font-size: 14px; font-weight: 600; }
 
 /* ==========================================================================
    5. Enterprise bento
@@ -523,8 +516,8 @@
 .nx-marquee__row { overflow: hidden; direction: ltr; }
 .nx-marquee__track { display: flex; gap: 12px; width: max-content; animation: nx-marquee 28s linear infinite; }
 .nx-marquee__row--rev .nx-marquee__track { animation-direction: reverse; animation-duration: 32s; }
-.nx-marquee__track span { padding: 10px 18px; border-radius: 14px; background: #fff; color: var(--nx-ink); font-size: 15px; font-weight: 600; white-space: nowrap; box-shadow: 0 0 0 1px var(--nx-line), 0 8px 18px -14px rgba(15, 58, 60, .5); }
-.nx-marquee__track span:nth-child(3n+1) { color: var(--nx-btn); }
+.nx-marquee__track span { display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; border-radius: 14px; background: #fff; color: var(--nx-ink); font-size: 15px; font-weight: 600; white-space: nowrap; box-shadow: 0 0 0 1px var(--nx-line), 0 8px 18px -14px rgba(15, 58, 60, .5); }
+.nx-marquee__track .nx-mlogo { width: 18px; height: 18px; }
 .nx-why__card:hover .nx-marquee__track { animation-play-state: paused; }
 @keyframes nx-marquee { from { transform: translateX(0); } to { transform: translateX(calc(-50% - 6px)); } }
 
@@ -576,7 +569,6 @@
    8. Consult (same structure/names as .home-consult so the existing handler works)
    ========================================================================== */
 .nx-consult .nx-container { position: relative; }
-.nx-consult { margin-top: calc(var(--nx-section-gap) + 80px); }
 .nx-consult__box {
   position: relative; isolation: isolate; overflow: hidden;
   display: grid; grid-template-columns: 1fr 1.25fr; gap: clamp(28px, 4vw, 64px); align-items: center; min-height: 448px; padding: clamp(28px, 4vw, 56px);
@@ -585,10 +577,6 @@
 .nx-consult__picture { position: absolute; inset: 0; z-index: -2; }
 .nx-consult__bg { width: 100%; height: 100%; object-fit: cover; }
 .nx-consult__box::after { content: ""; position: absolute; inset: 0; z-index: -1; background: rgba(0, 0, 0, .6); }
-.nx-consult__mascot {
-  position: absolute; z-index: 2; top: -112px; inset-inline-end: clamp(24px, 5vw, 72px); width: clamp(120px, 12vw, 168px); height: auto;
-  pointer-events: none; filter: drop-shadow(0 16px 20px rgba(0,0,0,.25));
-}
 .nx-consult__title { color: #fff; font-size: clamp(22px, 4px + 1.4vw, 28px); font-weight: 600; line-height: 1.6; }
 .nx-consult__text { margin-top: 12px; color: #b9bcc4; line-height: 2; }
 .nx-consult__alt { display: grid; gap: 10px; margin-top: 24px; }
@@ -697,11 +685,7 @@
   .nx-clients__row { grid-template-columns: repeat(3, 1fr); }
   .nx-faq__grid { grid-template-columns: 1fr; }
   .nx-faq__aside { position: static; }
-  .nx-consult__mascot { top: -84px; width: 120px; }
-  .nx-consult { margin-top: calc(var(--nx-section-gap) + 56px); }
-  .nx-card--wide { grid-template-columns: 1fr; }
-}
-
+  
 @media (max-width: 767.98px) {
   .nx-page { --nx-r-panel: 28px; }
   .nx-hero__box { padding: 28px 20px; }
@@ -745,11 +729,6 @@
   .nx-sb__strip { margin-top: 6px; gap: 4px; }
   .nx-sb__title { font-size: 11px; }
   .nx-sb__meta span:nth-child(2) { display: none; }
-  .nx-examples__list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
-  .nx-example__play { width: 32px; height: 32px; margin: -16px 0 0 -16px; top: 42%; }
-  .nx-example__play .nx-icon { width: 14px; height: 14px; }
-  .nx-example__tag { font-size: 12px; bottom: 6px; inset-inline-start: 8px; }
-  .nx-examples__head h3 { font-size: 15px; }
   .nx-bento { grid-template-columns: 1fr; }
   .nx-why { grid-template-columns: 1fr; }
   .nx-why__card--gpu { grid-column: auto; grid-template-columns: 1fr; }
