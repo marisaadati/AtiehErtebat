@@ -77,6 +77,8 @@
 }
 .ahb-node:nth-child(odd) .ahb-node__card { top: calc(100% + 18px); }
 .ahb-node:nth-child(even) .ahb-node__card { bottom: calc(100% + 18px); }
+.ahb-node__n { display: block; margin-bottom: 2px; color: var(--ahb-mint); font-size: 12px; font-weight: 700; letter-spacing: .5px; opacity: .75; }
+.ahb-node[aria-pressed="true"] .ahb-node__n { opacity: 1; }
 .ahb-node__name { display: block; color: #fff; font-size: 16px; font-weight: 700; line-height: 1.5; }
 .ahb-node__k { display: block; color: #9ccfd1; font-size: 13px; line-height: 1.6; }
 .ahb-node::after { /* stem from dot to card */
