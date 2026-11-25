@@ -24,7 +24,10 @@
       $('points').innerHTML = s.points.map(function (p) {
         return '<li><span class="ahs-check"><svg class="ahs-icon" aria-hidden="true"><use href="#ahs-i-check"/></svg></span>' + esc(p) + '</li>';
       }).join('');
-      $('tags').innerHTML = s.tags.map(function (t, j) { return '<span class="ahs-tag ahs-tag--' + j + '">' + esc(t) + '</span>'; }).join('');
+      var ANG = [-90, 30, 150];
+      $('tags').innerHTML = s.tags.map(function (t, j) {
+        return '<span class="ahs-sat" style="--a:' + ANG[j % 3] + 'deg"><i class="ahs-sat__line"></i><span class="ahs-tag">' + esc(t) + '</span></span>';
+      }).join('');
     }
     function select(i, user, focus) {
       current = (i + data.length) % data.length;
