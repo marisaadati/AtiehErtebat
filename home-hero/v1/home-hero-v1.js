@@ -100,7 +100,7 @@
           ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
         }
       }
-      ctx.fillStyle = 'rgba(87,179,183,.55)';
+      ctx.fillStyle = i % 7 === 0 ? 'rgba(240,163,94,.6)' : 'rgba(87,179,183,.55)';
       ctx.beginPath(); ctx.arc(a.x, a.y, a.r, 0, Math.PI * 2); ctx.fill();
     }
   }
