@@ -1,0 +1,15 @@
+# Netlify: serve the standalone design preview at the site root.
+# No build step — static files only.
+[build]
+  publish = "."
+  command = ""
+
+[[redirects]]
+  from = "/"
+  to = "/preview-single-file.html"
+  status = 200
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
