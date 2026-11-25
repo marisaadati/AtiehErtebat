@@ -1,8 +1,8 @@
 /* Homepage hero — Version 2 "Data bus". No dependencies. */
 (function () {
   'use strict';
-  var root = document.querySelector('.ahb-hero');
-  if (!root) return;
+  Array.prototype.forEach.call(document.querySelectorAll('.ahb-hero'), init);
+  function init(root) {
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var services = JSON.parse(root.querySelector('script[type="application/json"]').textContent);
   var nodes = Array.prototype.slice.call(root.querySelectorAll('.ahb-node'));
@@ -53,6 +53,8 @@
   /* rising glow particles */
   var box = root.querySelector('.ahb-box'), canvas = root.querySelector('.ahb-bg'), ctx = canvas.getContext('2d');
   var W, H, pts = [], raf = 0;
+  var LIGHT = root.classList.contains('ahb-hero--light');
+  var TEAL = LIGHT ? '55,125,129' : '113,205,208', AMB = LIGHT ? '232,145,63' : '240,163,94', ALPHA = LIGHT ? .55 : 1;
   function resize() {
     var r = box.getBoundingClientRect(), dpr = Math.min(window.devicePixelRatio || 1, 2);
     W = r.width; H = r.height; canvas.width = W * dpr; canvas.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
@@ -65,7 +67,7 @@
     for (var i = 0; i < pts.length; i++) {
       var p = pts[i];
       if (!reduce) { p.y -= p.v; if (p.y < -5) { p.y = H + 5; p.x = Math.random() * W; } }
-      ctx.beginPath(); ctx.fillStyle = 'rgba(113,205,208,' + p.a + ')'; ctx.shadowColor = '#71cdd0'; ctx.shadowBlur = 8;
+      var amber = i % 6 === 0; ctx.beginPath(); ctx.fillStyle = 'rgba(' + (amber ? AMB : TEAL) + ',' + (p.a * ALPHA).toFixed(3) + ')'; ctx.shadowColor = 'rgba(' + (amber ? AMB : TEAL) + ',.8)'; ctx.shadowBlur = 8;
       ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2); ctx.fill();
     }
     ctx.shadowBlur = 0;
@@ -80,4 +82,5 @@
       if (visible && !raf) loop(); else if (!visible && raf) { cancelAnimationFrame(raf); raf = 0; }
     }, { threshold: 0.05 }).observe(box);
   } else if (!reduce) loop();
+  }
 })();
